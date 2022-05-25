@@ -1,0 +1,17 @@
+# Koch płatek śniegu
+axiom = "F--F--F"
+rules = {"F":"F+F--F+F"}
+iterations = 4 # TOP: 7
+angle = 60
+
+#TrójkątSierpińskiego
+axiom = "FXF--FF--FF"
+rules = {"F":"FF", "X":"--FXF++FXF++FXF--"}
+iterations = 7 # TOP: 8
+angle = 60
+
+#Sierpinski-Arrowhead
+axiom = "YF"
+rules = {"X":"YF+XF+Y", "Y":"XF-YF-X"}
+iterations = 1 # TOP: 10
+angle = 60
