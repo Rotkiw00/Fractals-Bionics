@@ -74,7 +74,8 @@ canvas.pack()
 global screen
 screen = turtle.TurtleScreen(canvas)
 screen.bgcolor("black")
-# dupa
+
+#zrobic: Przyciski rysujace fraktale
 
 root.grid_rowconfigure((0, 1, 2, 3, 4), weight=1)
 root.grid_columnconfigure((0, 1, 2, 3), weight=1)
