@@ -112,5 +112,5 @@ tk.Label(bottom_frame).grid(row=5)
 tk.Label(top_frame).grid(row=0)
 
 
-# Główna pętla programu
+# Główna pętla aplikacji do rysowania fraktali
 root.mainloop()
