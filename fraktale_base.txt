@@ -10,8 +10,26 @@ rules = {"F":"FF", "X":"--FXF++FXF++FXF--"}
 iterations = 7 # TOP: 8
 angle = 60
 
-#Sierpinski-Arrowhead
+Sierpinski-Arrowhead
 axiom = "YF"
 rules = {"X":"YF+XF+Y", "Y":"XF-YF-X"}
 iterations = 1 # TOP: 10
 angle = 60
+
+Rings
+axiom = "F+F+F+F"
+rules = {"F":"FF+F+F+F+F+F-F"}
+iterations = 2 # TOP: 4
+angle = 90
+
+Levy-C-Curve
+axiom = "F"
+rules = {"F":"+F--F+"}
+iterations = 10 # TOP: 16
+angle = 45
+
+ThreeDragon-Curve
+axiom = "FX+FX+FX"
+rules = {"X":"X+YF+", "Y":"-FX-Y"}
+iterations = 7 # TOP: 15
+angle = 90
