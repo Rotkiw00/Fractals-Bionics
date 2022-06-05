@@ -2,9 +2,11 @@
 import turtle
 import tkinter as tk
 import random
+from tkinter import messagebox
 
 # Clean window function
 def clean():
+    messagebox.showinfo('Informacja', 'Właśnie czyścisz okno.')
     t.clear()
     turtle.bye()
 
@@ -32,7 +34,7 @@ def draw_l_system(t, instructions, angle, distance):
 
 # Specific functions for specific fractal draw
 # KOCH FRACTAL
-def koch_fractal_draw(iterations = 4, axiom = "F--F--F", rules = {"F": "F+F--F+F"}, angle = 60, length=8, size=2, y_offset=0,
+def koch_fractal_draw(iterations = 4, axiom = "F--F--F", rules = {"F": "F+F--F+F"}, angle = 60, length=6, size=2, y_offset=-250,
                       x_offset=0, offset_angle=0):
     inst = create_l_system(iterations, axiom, rules)
     global t
@@ -48,7 +50,7 @@ def koch_fractal_draw(iterations = 4, axiom = "F--F--F", rules = {"F": "F+F--F+F
     t.hideturtle()
     draw_l_system(t, inst, angle, length)
 
-#zrobic: Przyciski rysujace fraktale
+# zrobic: Przyciski rysujace fraktale
 
 def sierpinski_fractal_draw(iterations, axiom, rules, angle, length, size, y_offset,x_offset,offset_angle):
     inst = create_l_system(iterations, axiom, rules)
@@ -67,7 +69,7 @@ def sierpinski_fractal_draw(iterations, axiom, rules, angle, length, size, y_off
 
 
 ###########################
-#  -------- MAIN --------
+#  -------- MAIN -------- new line
 ###########################
 root = tk.Tk()
 root.resizable(False, False)
@@ -84,6 +86,9 @@ bottom_frame.pack(side=tk.BOTTOM)
 top_frame = tk.Frame(root)
 top_frame.pack(side=tk.TOP)
 
+center_frame = tk.Frame(root)
+center_frame.pack(side=tk.RIGHT)
+
 canvas = tk.Canvas(frame)
 canvas.config(width=700, height=700)
 canvas.pack()
@@ -96,15 +101,15 @@ screen.bgcolor("black")
 root.grid_rowconfigure((0, 1, 2, 3, 4, 5), weight=1)
 root.grid_columnconfigure((0, 1, 2, 3), weight=1)
 
-bttn_clean_window = tk.Button(bottom_frame, width=8, height=2, text="Clean", command=lambda: clean())
+bttn_clean_window = tk.Button(top_frame, width=8, height=2, text="Clean window", command=lambda: clean())
+bttn_draw_koch = tk.Button(center_frame, width=8, height=2, text="Koch Snowflake", command=lambda: koch_fractal_draw())
+bttn_test = tk.Button(center_frame, width=8, height=2, text="Test")
 bttn_exit = tk.Button(bottom_frame, width=8, height=2, text="Exit", command=lambda: root.quit())
-bttn_draw_koch = tk.Button(top_frame, width=8, height=2, text="Draw Fractal", command=lambda: koch_fractal_draw())
-bttn_test = tk.Button(top_frame, width=8, height=2, text="Test")
 
 # Konfiguracja rozmieszczenia przycisków
-bttn_draw_koch.grid(row=1, column=0)
-bttn_test.grid(row=2,column=0)
-bttn_clean_window.grid(row=3, column=0)
+bttn_clean_window.grid(row=1, column=0)
+bttn_draw_koch.grid(row=2, column=0)
+bttn_test.grid(row=3,column=0)
 bttn_exit.grid(row=4, column=0)
 
 # Odstepy miedzy przyciskami
